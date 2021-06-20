@@ -60,7 +60,7 @@ function NFT() {
                                     <Table.Cell>{decodeURI(value.filedata.split('/').pop())}</Table.Cell>
                                     <Table.Cell>{value.filesize}</Table.Cell>
                                     <Table.Cell>{value.md5sum}</Table.Cell>
-                                    <Table.Cell><a href={value.filedata}><Icon name="download" /></a></Table.Cell>
+                                    <Table.Cell>{(value.NFT) ? <a href={value.filedata}><Icon name="download" /></a> : 'NA' }</Table.Cell>
                                     <Table.Cell>{(value.NFT) ? 'yes' : 'no' }</Table.Cell>
                                 </Table.Row>)
                         })}

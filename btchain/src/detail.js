@@ -12,7 +12,7 @@ function Detail() {
     console.log("[MYPARAM]",myparam)
     const [qrvalue, setQrvalue] = useState('default');
     const [NftShow, setNftShow] = useState(myparam.NFT)
-    const [NFTed, setNFT] = useState({'tx_hash':'','status':false})
+    const [NFTed, setNFT] = useState({'tx_hash':myparam.tx_hash,'status':false})
     const user_id = myparam.user_id;
     const user_url = `http://203.255.24.99:3035/Profile/?user=${user_id}`
     console.log("[USER_INFO]",user_url)
@@ -94,12 +94,10 @@ function Detail() {
             {(NftShow === true) ?
                 <>
                     <List bulleted>
-                        <List.Item>tx_hash : {myparam.tx_hash}</List.Item>
-                        <List.Item><a href={`https://scope.klaytn.com/tx/${myparam.tx_hash}?tabId=internalTx`} target="_blank">tx_link</a></List.Item>
+                        <List.Item>Download : <a href={myparam.filedata}><Icon name="download" /></a></List.Item>
+                        <List.Item>tx_hash : {NFTed.tx_hash}</List.Item>
+                        <List.Item><a href={`https://scope.klaytn.com/tx/${NFTed.tx_hash}?tabId=internalTx`} target="_blank">tx_link</a></List.Item>
                     </List>
-                    
-                     
-                     
                 </>
                 :
                 <>
